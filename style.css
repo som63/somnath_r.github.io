@@ -42,7 +42,7 @@ h1, h2 {
 }
 .project-image {
     width: 100%;
-    max-width: 500px;   /* reduced size */
+    max-width: 300px;   /* reduced size */
     display: block;
     margin: 15px auto;
     border-radius: 6px;
