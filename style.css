@@ -174,7 +174,7 @@ h1, h2 {
     margin: 40px 0;
 }
 
-/* ===== Publications - compact list ===== */
+/* ===== Publications - compact list (updated) ===== */
 .publications-list { list-style: none; padding: 0; margin: 0; display:block; }
 .publications-list .pub-item {
   display:block;
@@ -191,25 +191,37 @@ h1, h2 {
 }
 
 .pub-main { margin-bottom: 8px; }
-.pub-title { color: #003366; font-style: italic; font-weight: 600; font-size: 1rem; line-height: 1.35; }
-.pub-meta { color: #444; font-size: 0.95rem; margin-top:6px; }
+.pub-authors { color: #222; font-size: 0.98rem; margin-bottom: 6px; }
 
-.pub-actions { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px; flex-wrap:wrap; }
-.pub-badge { background:#eaf3ff; color:#003366; padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.85rem; }
-.pub-links a, .pub-links button { background:transparent; border:0; color:#003366; cursor:pointer; padding:6px; font-size:0.95rem; text-decoration:none; font-weight:600; }
-.pub-links a.doi { text-decoration:none; color:#003366; margin-right:6px; }
-
-.pub-abstract { margin-top:10px; background:#fbfdff; border-radius:6px; padding:12px; border:1px solid #eef6ff; font-size:0.95rem; color:#333; }
-
-/* 2-column layout on large screens */
-@media (min-width: 1100px) {
-  .publications-list { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
-  .publications-list .pub-item { margin-bottom:0; }
+/* Your name is bold via <strong>Roy, S.</strong> in the HTML */
+/* Paper title in a different (sans-serif) font and weight */
+.paper-title {
+  font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;      /* keep it from being italic if you prefer */
+  font-weight: 700;
+  color: #003366;
+  display:block;
+  font-size: 1.02rem;
+  margin-bottom: 6px;
 }
 
-/* print-friendly */
+/* Keep meta and DOI style */
+.pub-meta { color: #444; font-size: 0.95rem; margin-top:6px; }
+.pub-meta a.doi-link { color:#003366; text-decoration:none; font-weight:600; }
+
+/* Actions / badge */
+.pub-actions { display:flex; justify-content:flex-end; align-items:center; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.pub-badge { background:#eaf3ff; color:#003366; padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.85rem; }
+
+/* Two-column layout for wide screens */
+@media (min-width: 1100px) {
+  .publications-list { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+  .publications-list .pub-item { margin-bottom: 0; }
+}
+
+/* Print style */
 @media print {
-  .pub-links, .copy-bib, .toggle-abs { display:none !important; }
+  .pub-actions { display:none !important; }
   .pub-badge { display:inline-block; margin-left:6px; }
 }
 
