@@ -130,6 +130,39 @@ Full and updated list also available on
 
 </div>
 
+    <script>
+document.addEventListener('click', function(e) {
+  // Copy BibTeX
+  if (e.target.matches('.copy-bib')) {
+    const bib = e.target.getAttribute('data-bib') || '';
+    if (!bib) {
+      // quick user feedback if empty
+      e.target.textContent = 'No BibTeX';
+      setTimeout(()=> e.target.textContent = 'Copy BibTeX', 1200);
+      return;
+    }
+    navigator.clipboard.writeText(bib).then(() => {
+      e.target.textContent = 'Copied ✓';
+      setTimeout(() => e.target.textContent = 'Copy BibTeX', 1400);
+    }).catch(() => {
+      e.target.textContent = 'Copy failed';
+      setTimeout(() => e.target.textContent = 'Copy BibTeX', 1400);
+    });
+  }
+
+  // Toggle abstract
+  if (e.target.matches('.toggle-abs')) {
+    const item = e.target.closest('.pub-item');
+    if (!item) return;
+    const cont = item.querySelector('.pub-abstract');
+    if (!cont) return;
+    cont.hidden = !cont.hidden;
+    e.target.textContent = cont.hidden ? 'Abstract' : 'Hide abstract';
+  }
+});
+</script>
+
+
 </body>
 </html>
 
